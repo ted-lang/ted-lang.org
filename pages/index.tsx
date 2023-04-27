@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Head from "next/head";
 import { Inter } from "next/font/google";
+import Typewriter from "typewriter-effect";
+import GraphemeSplitter from "grapheme-splitter";
 import RaiseLink from "@component/components/raise-link";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const stringSplitter = (str: string): any => {
+    const splitter = new GraphemeSplitter();
+    return splitter.splitGraphemes(str);
+  };
   return (
     <main
       className={`flex min-h-screen flex-col items-center px-12 pb-12 ${inter.className} max-w-7xl mx-auto`}
@@ -30,8 +36,28 @@ export default function Home() {
       <div className="flex min-h-screen items-center justify-between flex-col">
         <p></p>
         <div className="relative place-items-center">
+          <div className="text-2xl xs:text-1xl lg:text-4xl text-center font-mono mt-20 opacity-90">
+            <Typewriter
+              options={{
+                loop: true,
+                stringSplitter
+              }}
+              onInit={(typewriter)=> {
+              typewriter
+                .typeString("Featuring Teddy Bears")
+                .pauseFor(1000)
+                .deleteAll()
+                .typeString("Super Simple Syntax")
+                .pauseFor(1000)
+                .deleteAll()
+                .typeString("🧸->say(\"Hello World!\")")
+                .pauseFor(1000)
+                .start();
+              }}
+            />
+          </div>
           <h1
-            className={`text-4xl xs:text-1xl lg:text-6xl font-semibold text-center mt-12 mb-6 mt-20`}
+            className={`text-4xl xs:text-1xl lg:text-6xl font-semibold text-center my-6`}
           >
             <span className="font-bold text-rainbow-animation">Ted</span>{" "}
             <span className="opacity-70">Programming Language</span>
@@ -133,7 +159,7 @@ export default function Home() {
       <div id="more">
         <h2 className="text-center text-4xl mt-12 mb-5 font-semibold">Why Ted?</h2>
         <div className="text-center">
-          More contents ...
+          More contents to be added ...
         </div>
       </div>
 

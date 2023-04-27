@@ -6,6 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --title-gradient-a: indigo;
+  --title-gradient-b: royalblue;
+  --title-gradient-c: purple;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +16,9 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --title-gradient-a: magenta;
+    --title-gradient-b: mediumpurple;
+    --title-gradient-c: burlywood;
   }
 }
 
@@ -24,4 +30,24 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.text-rainbow-animation {
+  background: linear-gradient(
+    to right,
+    var(--title-gradient-a),
+    var(--title-gradient-b),
+    var(--title-gradient-c),
+    var(--title-gradient-a)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-animation 500s linear infinite;
+}
+
+@keyframes rainbow-animation {
+  to {
+    background-position: 4500vh;
+  }
 }

@@ -1,0 +1,13 @@
+.raise_text_container {
+  display: inline-block;
+}
+
+.raise_text_title {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.raise_text_title:hover {
+  color: var(--title-gradient-a);
+  text-shadow: 0 5px 15px rgba(var(--foreground-rgb), 0.2);
+}

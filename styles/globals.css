@@ -15,11 +15,15 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 10, 10, 10;
     --title-gradient-a: magenta;
     --title-gradient-b: mediumpurple;
     --title-gradient-c: burlywood;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -46,8 +50,38 @@ body {
   animation: rainbow-animation 500s linear infinite;
 }
 
+.arrow {
+  width: 40pt;
+  height: 40pt;
+  border: 5pt solid;
+  border-color: rgb(var(--foreground-rgb)) transparent transparent rgb(var(--foreground-rgb));
+  transform: rotate(-135deg);
+}
+
+.arrowSliding {
+  position: absolute;
+  animation: slide 6s linear infinite;
+}
+
+.delay1 {
+  animation-delay: 1.5s;
+}
+.delay2 {
+  animation-delay: 3s;
+}
+.delay3 {
+  animation-delay: 4.5s;
+}
+
 @keyframes rainbow-animation {
   to {
     background-position: 4500vh;
   }
+}
+
+@keyframes slide {
+  0% { opacity:0; transform: translateY(-25pt); }	
+ 20% { opacity:1; transform: translateY(-15pt); }	
+ 80% { opacity:1; transform: translateY(15pt); }	
+100% { opacity:0; transform: translateY(25pt); }	
 }

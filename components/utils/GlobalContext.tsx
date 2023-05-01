@@ -9,7 +9,7 @@ interface Global {
 
 export const useMemoObject = <T extends Readonly<Record<string | number, any>>>(
   obj: T
-): Readonly<T> => useMemo(() => obj, Object.values(obj));
+): Readonly<T> => useMemo(() => obj, [obj]);
 
 export const GlobalContext = createContext<Readonly<Global>>({} as Global);
 
@@ -17,12 +17,12 @@ export const GlobalProvider = memo(({ children }:  React.PropsWithChildren<unkno
   const [color, setColor] = useState("#000000");
   const [typeNumber, setTypeNumber] = useState(0);
 
-  const globalValue = useMemoObject<Global>({
+  const globalValue = useMemo(() => ({
     setColor,
     color,
     setTypeNumber,
     typeNumber,
-  });
+  }), [color, typeNumber]);
 
   return (
     <GlobalContext.Provider value={globalValue}>

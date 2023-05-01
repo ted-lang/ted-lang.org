@@ -50,6 +50,20 @@ body {
   animation: rainbow-animation 500s linear infinite;
 }
 
+.text-rainbow-animation-slow {
+  background: linear-gradient(
+    to right,
+    var(--title-gradient-a),
+    var(--title-gradient-b),
+    var(--title-gradient-c),
+    var(--title-gradient-a)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-animation 1500s linear infinite;
+}
+
 .arrow {
   width: 40pt;
   height: 40pt;

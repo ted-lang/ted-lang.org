@@ -1,7 +1,11 @@
 import Link from "next/link"
 import SmallLink from "./SmallLink";
 
+import { GlobalContext } from "./utils/GlobalContext";
+import { useContext } from "react";
+
 function Header() {
+  const { color } = useContext(GlobalContext);
   return (
     <div className="z-10 w-full max-w-5xl text-sm">
       <div className="text-right fixed left-0 top-0 flex w-full border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-3 pt-4 lg:pb-4 lg:pt-5 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit">

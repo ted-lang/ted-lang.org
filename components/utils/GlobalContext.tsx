@@ -13,7 +13,7 @@ export const useMemoObject = <T extends Readonly<Record<string | number, any>>>(
 
 export const GlobalContext = createContext<Readonly<Global>>({} as Global);
 
-export const GlobalProvider = memo(({ children }: any) => {
+export const GlobalProvider = memo(({ children }:  React.PropsWithChildren<unknown>) => {
   const [color, setColor] = useState("#000000");
   const [typeNumber, setTypeNumber] = useState(0);
 

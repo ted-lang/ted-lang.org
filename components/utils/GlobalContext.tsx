@@ -9,7 +9,6 @@ interface Global {
 
 export const useMemoObject = <T extends Readonly<Record<string | number, any>>>(
   obj: T
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 ): Readonly<T> => useMemo(() => obj, Object.values(obj));
 
 export const GlobalContext = createContext<Readonly<Global>>({} as Global);
@@ -31,3 +30,6 @@ export const GlobalProvider = memo(({ children }: any) => {
     </GlobalContext.Provider>
   );
 });
+
+export default GlobalProvider;
+GlobalProvider.displayName = "GlobalProvider";
